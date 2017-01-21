@@ -1,0 +1,44 @@
+{
+  "intents":
+  	[
+	    {
+	  		"intent": "AddMeA",
+	      	"slots": [
+		      	{
+		          "name" :"FoodType",
+		          "type": "AMAZON.Food"
+		      	}
+	      	]
+		},
+		{
+			"intent": "TxTMeA",
+			"slots":
+			[
+				{
+					"name": "FoodType",
+					"type": "AMAZON.Food"
+				}
+			]
+		},
+		{
+			"intent":"ShowMeA",
+			"slots":
+			[
+				{
+					"name": "FoodType",
+					"type": "AMAZON.Food"
+				}
+			]
+		},
+		{
+			"intent":"WhatIsThe",
+			"slots":
+			[
+				{
+					"name": "FoodType",
+					"type": "AMAZON.Food"
+				}
+			]
+		}
+	]
+}

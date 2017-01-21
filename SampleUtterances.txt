@@ -1,0 +1,22 @@
+AddMeA to make me a {FoodType}
+AddMeA order me a {FoodType}
+AddMeA buy me a {FoodType}
+AddMeA make a {FoodType}
+AddMeA serve me a {FoodType}
+AddMeA purchase me {FoodType}
+
+AddMeA to make me a {FoodType} from amazon
+AddMeA order me a {FoodType} from amazon
+AddMeA buy me a {FoodType} from amazon
+AddMeA make a {FoodType} from amazon
+AddMeA serve me a {FoodType} from amazon
+AddMeA purchase me {FoodType} from amazon
+
+TxTMeA text me the recipe for {FoodType}
+TxtMeA send me the recipe for {FoodType}
+
+ShowMeA show me the recipe for {FoodType}
+ShowMeA display the recipe for {FoodType}
+
+WhatIsThe what is the recipe for {FoodType}
+WhatIsThe how to cook {FoodType}
