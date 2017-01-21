@@ -8,11 +8,24 @@ body{
   color: rgba(0,0,0,0.7);
 }
 
+.trigger{
+  width: 400px;
+  height: 200px;
+  border: 20px solid #999;
+  background: #ddd;
+}
+
 .box{
   display: inline-block;
   background: pink;
-  width: 200px;
+  width: 400px;
   height: 200px;
-  transform: translate(200px, 150px) rotate(20deg);
-transition: transform 300ms ease-in-out;
+
+  transition: transform 300ms ease-in-out;
+  pointer-events: none;
+}
+
+.trigger:hover .box{
+  transform: translate(400px);
+
 }
