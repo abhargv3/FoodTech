@@ -1,8 +1,5 @@
 var https = require('https')
 
-/** This is the lambda function outline written in JavaScript to implement the shopping list, configure triggers-> alexa skills kit with runtime Node.js 4.3"
-**/
-
 exports.handler = (event, context) => {
 
   try {
@@ -14,22 +11,85 @@ exports.handler = (event, context) => {
 
     switch (event.request.type) {
 
-      case "LaunchRequest": //first request
+      case "LaunchRequest":
         // Launch Request
         console.log(`LAUNCH REQUEST`)
         context.succeed(
           generateResponse(
-            buildSpeechletResponse("Welcome to an Alexa Skill, this is running on a deployed lambda function", true),
+            buildSpeechletResponse("Welcome to an FoodTech. Try commands like, Alexa tell foodtech to text me the recipe of Mac and Cheese!", true),
             {}
           )
         )
         break;
 
-      case "IntentRequest": // second request
+      case "IntentRequest":
         // Intent Request
-			console.log("INTENT REQUEST")
-
+        console.log(`INTENT REQUEST`)
+        switch(event.request.intent.name) {
+          case "AddMeA":
+            var intent = event.request.intent.slots.SinceDate.value
+            unirest.get("https://edamam-recipe-search-and-diet-v1.p.mashape.com/search?_app_id=f87d52d5&_app_key=b0626ee02a7fd70a7db376f59c5cf414&q="+intent)
+            .header("X-Mashape-Key", "PyMe0DqaVKmshJHIVjljVczSavCUp1CYb99jsnknSjB0mgWgwa")
+            .header("Accept", "application/json")
+            .end(function (result) {
+              var data = JSON.parse(result.body);
+              var recipe = data.q;
+              var ingredientArr = data.hits[0].ingredientLines;
+              console.log(data.q);
+              console.log(ingredientArr);
+              context.succeed(
+                generateResponse(
+                  buildSpeechletResponse("Okay. Added recipe of ${recipe}", true),
+                  {}
+                )
+              )
+            });
             break;
+
+          case "TxTMeA":
+            var intent = event.request.intent.slots.SinceDate.value
+            unirest.get("https://edamam-recipe-search-and-diet-v1.p.mashape.com/search?_app_id=f87d52d5&_app_key=b0626ee02a7fd70a7db376f59c5cf414&q="+intent)
+            .header("X-Mashape-Key", "PyMe0DqaVKmshJHIVjljVczSavCUp1CYb99jsnknSjB0mgWgwa")
+            .header("Accept", "application/json")
+            .end(function (result) {
+              var data = JSON.parse(result.body);
+              var recipe = data.q;
+              var ingredientArr = data.hits[0].ingredientLines;
+              console.log(data.q);
+              console.log(ingredientArr);
+              context.succeed(
+                generateResponse(
+                  buildSpeechletResponse("Okay. Texted and added recipe of ${recipe}", true),
+                  {}
+                )
+              )
+            });
+            break;
+
+          /*case "GetVideoViewCountSinceDate":
+            console.log(event.request.intent.slots.SinceDate.value)
+            var endpoint = "" // ENDPOINT GOES HERE
+            var body = ""
+            https.get(endpoint, (response) => {
+              response.on('data', (chunk) => { body += chunk })
+              response.on('end', () => {
+                var data = JSON.parse(body)
+                var viewCount = data.items[0].statistics.viewCount
+                context.succeed(
+                  generateResponse(
+                    buildSpeechletResponse(`Current view count is ${viewCount}`, true),
+                    {}
+                  )
+                )
+              })
+            })
+            break; */
+
+          default:
+            throw "Invalid intent"
+        }
+
+        break;
 
       case "SessionEndedRequest":
         // Session Ended Request
@@ -46,7 +106,7 @@ exports.handler = (event, context) => {
 }
 
 // Helpers
-buildSpeechletResponse = (outputText, shouldEndSession) => { //THis is for whether alexa has answered the required task or it has permission to leave the request
+buildSpeechletResponse = (outputText, shouldEndSession) => {
 
   return {
     outputSpeech: {
