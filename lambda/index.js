@@ -49,7 +49,7 @@ exports.handler = (event, context) => {
 
           case "TxTMeA":
             var intent = event.request.intent.slots.FoodType.value;
-            unirest.get("https://edamam-recipe-search-and-diet-v1.p.mashape.com/search?_app_id=f87d52d5&_app_key=b0626ee02a7fd70a7db376f59c5cf414&q=spaghetti")
+            unirest.get("https://edamam-recipe-search-and-diet-v1.p.mashape.com/search?_app_id=f87d52d5&_app_key=b0626ee02a7fd70a7db376f59c5cf414&q="+intent)
             .header("X-Mashape-Key", "PyMe0DqaVKmshJHIVjljVczSavCUp1CYb99jsnknSjB0mgWgwa")
             .header("Accept", "application/json")
             .end(function (result) {
@@ -73,7 +73,7 @@ exports.handler = (event, context) => {
               });
               context.succeed(
                 generateResponse(
-                  buildSpeechletResponse("Okay. Texted and added recipe of ${recipe}", true),
+                  buildSpeechletResponse("Okay. Texted and added recipe of " + recipe, true),
                   {}
                 )
               )
