@@ -1,6 +1,5 @@
 var https = require('https')
 var unirest = require('unirest');
-var twilio = require('twilio');
 exports.handler = (event, context) => {
 
   try {
@@ -41,7 +40,7 @@ exports.handler = (event, context) => {
               console.log(ingredientArr);
               context.succeed(
                 generateResponse(
-                  buildSpeechletResponse("Okay. Added recipe of ${recipe}", true),
+                  buildSpeechletResponse("Okay. Added recipe of " + recipe, true),
                   {}
                 )
               )
@@ -62,13 +61,41 @@ exports.handler = (event, context) => {
               console.log(ingredientArr);
               //Twillio Stuff goes here
               // Find your account sid and auth token in your Twilio account Console.
-              var client = twilio('AC4978c4f0ae1fdc1e837a879ea9d21f44', '61309043a35db983279062e5c7d8f96d');
-               
-              // Send the text message.
+
+              var msg = "Here is your recipe for " + recipe + ".\n";
+              for (var i = ingredientArr.length - 1; i >= 0; i--) {
+                msg = msg + "\n" + ingredientArr[i].text;
+              }
+
+              var accountSid = 'AC5b147772a8494886a6f9096133407dcd';
+              var authToken = '9a58a46e6f5868841642cb7e98a765be';
+
+
+              //require the Twilio module and create a REST client 
+
+
+              //require the Twilio module and create a REST client
+              var client = require('twilio')(accountSid, authToken);
+
+              //Send an SMS text message
               client.sendMessage({
-                to: '5035641967',
-                from: '2176907868',
-                body: 'hello. This is food tech!'
+
+                  to:'+12179798461', // Any number Twilio can deliver to
+                  from: '+12175744245', // A number you bought from Twilio and can use for outbound communication
+                  body: msg // body of the SMS message
+
+              }, function(err, responseData) { //this function is executed when a response is received from Twilio
+
+                  if (!err) { // "err" is an error received during the request, if any
+
+                      // "responseData" is a JavaScript object containing data received from Twilio.
+                      // A sample response from sending an SMS message is here (click "JSON" to see how the data appears in JavaScript):
+                      // http://www.twilio.com/docs/api/rest/sending-sms#example-1
+
+                      console.log(responseData.from); // outputs "+14506667788"
+                      console.log(responseData.body); // outputs "word to your mother."
+
+                  }
               });
               context.succeed(
                 generateResponse(
