@@ -8,7 +8,7 @@ unirest.get("https://edamam-recipe-search-and-diet-v1.p.mashape.com/search?_app_
 
 
 
-function myFunction() {
+function searchFunction() {
     var x = document.getElementById("mySearch").value;
 
     document.getElementById("demo").innerHTML = "To make " + x + " you need these ingredients: ";

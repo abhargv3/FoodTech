@@ -20,14 +20,24 @@
 
     What dish do you want to make today? <br>
     <br>
-    <input type="search" id="mySearch" value="Type dish here">
 
-    <button onclick="myFunction()">Try it</button>
+  <!--  <input type="search" id="mySearch" value="Type dish here">
+
+    <button onclick="myFunction()">Try it</button>-->
+    <div class="col-lg-6">
+      <div class="input-group">
+        <input type="search" id="mySearch" class="form-control" placeholder="Type dish here!" aria-describedby="basic-addon2">
+
+        <span class="input-group-addon" button onclick="searchFunction()" id="basic-addon2">Go</span>
+
+      </div>
+    </div>
 
     <p id="demo"></p>
 
     <script src="recipe_Data.js"></script>
-
+    <br>
+    <br>
     <div class="trigger">
       <div class="box"> </div>
     </div>
