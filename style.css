@@ -1,5 +1,14 @@
-.white{
-  font: Arial, Helvetica, sans-serif;
+.white-title{
+  font-family: 'Convergence', sans-serif;
+/*  font: Arial, Helvetica, sans-serif;*/
+  font-size: 80px;
+  color: #ffffff;
+}
+
+.white-normal{
+  font-family: 'Convergence', sans-serif;
+/*  font: Arial, Helvetica, sans-serif;*/
+  font-size: 40px;
   color: #ffffff;
 }
 
