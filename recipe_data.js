@@ -13,21 +13,3 @@ function myFunction() {
 
     document.getElementById("demo").innerHTML = "To make " + x + " you need these ingredients: ";
 }
-
-function getRecipeJson() {
-        var apiKey = "your-api-key-here";
-        var TitleKeyword = "lasagna";
-        var url = "http://api2.bigoven.com/recipes?pg=1&rpp=25&title_kw="
-                  + TitleKeyword
-                  + "&api_key="+apiKey;
-        $.ajax({
-            type: "GET",
-            dataType: 'json',
-            cache: false,
-            url: url,
-            success: function (data) {
-                alert('success');
-                //console.log(data);
-            }
-        });
-    }
