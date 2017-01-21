@@ -1,5 +1,6 @@
 var https = require('https')
 var unirest = require('unirest');
+var twilio = require('twilio');
 exports.handler = (event, context) => {
 
   try {
@@ -35,7 +36,7 @@ exports.handler = (event, context) => {
               console.log(result);
               var data = (result.body);
               var recipe = data.q;
-              var ingredientArr = data.hits[0].ingredientLines;
+              var ingredientArr = data.hits[0].recipe.ingredients;
               console.log(data.q);
               console.log(ingredientArr);
               context.succeed(
@@ -56,20 +57,18 @@ exports.handler = (event, context) => {
               console.log(result.body);
               var data = result.body;
               var recipe = data.q;
-              var ingredientArr = data.hits[0].ingredientLines;
+              var ingredientArr = data.hits[0].recipe.ingredients;
               console.log(data.q);
               console.log(ingredientArr);
               //Twillio Stuff goes here
-
-              var twilio = require('twilio');
               // Find your account sid and auth token in your Twilio account Console.
               var client = twilio('AC4978c4f0ae1fdc1e837a879ea9d21f44', '61309043a35db983279062e5c7d8f96d');
                
               // Send the text message.
               client.sendMessage({
-                to: '2179798461',
-                from: '5035641967',
-                body: "hello. This is food tech!"
+                to: '5035641967',
+                from: '2176907868',
+                body: 'hello. This is food tech!'
               });
               context.succeed(
                 generateResponse(
