@@ -6,7 +6,11 @@
 body{
   padding: 50px;
   color: rgba(0,0,0,0.7);
-  background-image: url("https://whvn.cc/414980");
+  background-image: url("kitchen_image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
 }
 
 .trigger{
