@@ -3,13 +3,17 @@
   color: #ffffff;
 }
 
+.left{
+  left: 0px;
+}
+
 body{
   padding: 50px;
   color: rgba(0,0,0,0.7);
   background-image: url("kitchen_image.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  position:fixed;
+  background-attachment: fixed;
   min-height: 100%;
 }
 
@@ -31,7 +35,7 @@ html{
   width: 560px;
   height: 310px;
 
-  transition: transform 300ms ease-in-out;
+  transition: transform 300ms ease-in-out 250ms;
   pointer-events: none;
 }
 
@@ -41,9 +45,10 @@ html{
 }
 
 footer{
-	position:fixed;
+
 	bottom: 0;
 	left: 0;
 	width: 100%;
+  padding-top: 25px;
 	padding-bottom: 5px;
 }
