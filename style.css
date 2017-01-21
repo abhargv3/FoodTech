@@ -1,6 +1,6 @@
-#h1_blue{
+.white{
   font: Arial, Helvetica, sans-serif;
-  color: blue;
+  color: #ffffff;
 }
 
 body{
@@ -9,28 +9,41 @@ body{
   background-image: url("kitchen_image.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  position:fixed;
+  min-height: 100%;
+}
 
+html{
 
 }
 
 .trigger{
-  width: 400px;
-  height: 200px;
+  width: 600px;
+  height: 350px;
   border: 20px solid #999;
   background: #ddd;
 }
 
 .box{
+
   display: inline-block;
-  background: pink;
-  width: 400px;
-  height: 200px;
+  background: #d2a679;
+  width: 560px;
+  height: 310px;
 
   transition: transform 300ms ease-in-out;
   pointer-events: none;
 }
 
 .trigger:hover .box{
-  transform: translate(400px);
+  transform: translate(500px);
 
+}
+
+footer{
+	position:fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding-bottom: 5px;
 }
