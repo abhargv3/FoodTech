@@ -106,25 +106,26 @@ exports.handler = (event, context) => {
             });
             break;
 
-          /*case "GetVideoViewCountSinceDate":
-            console.log(event.request.intent.slots.SinceDate.value)
-            var endpoint = "" // ENDPOINT GOES HERE
-            var body = ""
-            https.get(endpoint, (response) => {
-              response.on('data', (chunk) => { body += chunk })
-              response.on('end', () => {
-                var data = JSON.parse(body)
-                var viewCount = data.items[0].statistics.viewCount
-                context.succeed(
-                  generateResponse(
-                    buildSpeechletResponse(`Current view count is ${viewCount}`, true),
-                    {}
-                  )
+          case "ShowMeA":
+            var intent = event.request.intent.slots.FoodType.value;
+            unirest.get("https://edamam-recipe-search-and-diet-v1.p.mashape.com/search?_app_id=f87d52d5&_app_key=b0626ee02a7fd70a7db376f59c5cf414&q="+intent)
+            .header("X-Mashape-Key", "PyMe0DqaVKmshJHIVjljVczSavCUp1CYb99jsnknSjB0mgWgwa")
+            .header("Accept", "application/json")
+            .end(function (result) {
+              console.log(result.body);
+              var data = result.body;
+              var recipe = data.q;
+              var ingredientArr = data.hits[0].recipe.ingredients;
+              console.log(data.q);
+              console.log(ingredientArr);
+              context.succeed(
+                generateResponse(
+                  buildSpeechletResponse("Okay. Check your browser for the new and exciting recipe of " + recipe, true),
+                  {}
                 )
-              })
-            })
-            break; */
-
+              )
+            });
+            break;
           default:
             throw "Invalid intent"
         }
