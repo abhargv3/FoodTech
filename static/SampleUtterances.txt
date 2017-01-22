@@ -13,10 +13,21 @@ AddMeA serve me a {FoodType} from amazon
 AddMeA purchase me {FoodType} from amazon
 
 TxTMeA text me the recipe for {FoodType}
-TxtMeA send me the recipe for {FoodType}
+TxTMeA send me the recipe for {FoodType}
+TxTMeA text me the ingredients of {FoodType}
 
 ShowMeA show me the recipe for {FoodType}
 ShowMeA display the recipe for {FoodType}
+ShowMeA what is the recipe for {FoodType}
+ShowMeA how to cook {FoodType}
+ShowMeA tell me how to cook {FoodType}
 
-WhatIsThe what is the recipe for {FoodType}
-WhatIsThe how to cook {FoodType}
+WhatIsOnMyWishList my wish list
+WhatIsOnMyWishList wish list
+WhatIsOnMyWishList get me my wish list
+WhatIsOnMyWishList display my wish list
+WhatIsOnMyWishList what is on my wish list
+WhatIsOnMyWishList what's on my wish list
+WhatIsOnMyWishList tell me my wish list
+WhatIsOnMyWishList my wish list pronto
+WhatIsOnMyWishList show me whats on my wish list
