@@ -3,7 +3,8 @@
 var mongoose     = require('mongoose');
 var Schema       = mongoose.Schema;
 
-var FoodSchema   = new Schema({	
+var FoodSchema   = new Schema({
+	recipe:String,
     text: String,
     quantity: Number,
     measure: String,
