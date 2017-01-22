@@ -1,64 +1,48 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML
 <html>
-<title>FoodTechHQ</title>
-<head>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" type="text/css" href="scrolling/bootstrap.css">
-  <meta charset="utf-8">
-  <link href="https://fonts.googleapis.com/css?family=Convergence" rel="stylesheet">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Basic Bootstrap Template</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<!-- Optional Bootstrap theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-<link rel="stylesheet" href="font_awesome/css/font-awesome.min.css">
-    <div class="page-header">
-      <h1 class="white"> <i class="fa fa-cutlery white fa-4x" aria-hidden="true"></i> FoodTechHQ </h1>
-    </div>
-</head>
+    <head>
+        <title>FoodHQ</title>
+        <!-- Latest compiled and minified AngularJavaScript and Route-->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
+	
+	    <!--Angular Material CSS -->
+          <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc5/angular-material.min.css">
+        <!-- Other script files -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc5/angular-material.min.js"></script>
 
+	    <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+        <!-- FavIcons -->
+        <script src="https://use.fontawesome.com/62c2b58f00.js"></script>
 
-<body>
+        <!--Local CSS Files -->
+        <link rel="stylesheet" href="css/style.css">
+        <!--Local JS Files -->
+        <script type="text/javascript" src="js/app.js"></script>
+        <!--Custom font inclusion-->
+        <link href="https://fonts.googleapis.com/css?family=Convergence" rel="stylesheet">
+        <!-- Meta tags-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="page-header">
+            <h1 class="white"> <i class="fa fa-cutlery white fa-4x" aria-hidden="true"></i> FoodTechHQ </h1>
+        </div>
 
-    <h4 class="white"> What dish do you want to make today? </h4>
-    <br>
-    <br>
-
-  <!--  <input type="search" id="mySearch" value="Type dish here">
-
-    <button onclick="myFunction()">Try it</button>-->
-    <div class="col-sm-6 left">
-      <div class="input-group">
-        <input type="search" id="mySearch" class="form-control" placeholder="Type dish here!" aria-describedby="basic-addon2">
-
-        <span class="input-group-addon" button onclick="searchFunction()" id="basic-addon2">Go</span>
-
-      </div>
-    </div>
-
-    <p id="demo"></p>
-
-    <script src="recipe_Data.js"></script>
-    <br>
-    <br>
-    <div class="trigger">
-      <div class="box"> </div>
-    </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+        <div ng-controller="recipeCtrl" ng-init="init()">
+            <h4 class="white"> What dish do you want to make today? </h4>
+            <h4 class="white"> Just ask Alexa to open up a recipe using FoodTech!</h4>
+            <br>
+            <br>
+        </div>
     </body>
-
-    <footer>
-      <h4 class="white"> This is the footer </h4>
-    </footer>
-
-
-
-<!-- ====================== -->
-
-
 
 </html>
