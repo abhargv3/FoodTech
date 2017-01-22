@@ -38,6 +38,12 @@ exports.handler = (event, context) => {
               var ingredientArr = data.hits[0].recipe.ingredients;
               console.log(data.q);
               console.log(ingredientArr);
+              unirest.post('https://foodtech.herokuapp.com/api/foods')
+              .headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+              .send(ingredientArr[0])
+              .end(function (response) {
+                console.log(response.body);
+              });
               context.succeed(
                 generateResponse(
                   buildSpeechletResponse("Okay. Added recipe of " + recipe, true),
@@ -61,6 +67,12 @@ exports.handler = (event, context) => {
               console.log(ingredientArr);
               //Twillio Stuff goes here
               // Find your account sid and auth token in your Twilio account Console.
+              unirest.post('https://foodtech.herokuapp.com/api/foods')
+              .headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+              .send(ingredientArr[0])
+              .end(function (response) {
+                console.log(response.body);
+              });
 
               var msg = "Here is your recipe for " + recipe + ".\n";
               for (var i = ingredientArr.length - 1; i >= 0; i--) {
@@ -110,6 +122,25 @@ exports.handler = (event, context) => {
             var intent = event.request.intent.slots.FoodType.value;
             unirest.get("https://edamam-recipe-search-and-diet-v1.p.mashape.com/search?_app_id=f87d52d5&_app_key=b0626ee02a7fd70a7db376f59c5cf414&q="+intent)
             .header("X-Mashape-Key", "PyMe0DqaVKmshJHIVjljVczSavCUp1CYb99jsnknSjB0mgWgwa")
+            .header("Accept", "application/json")
+            .end(function (result) {
+              console.log(result.body);
+              var data = result.body;
+              var recipe = data.q;
+              var ingredientArr = data.hits[0].recipe.ingredients;
+              console.log(data.q);
+              console.log(ingredientArr);
+              context.succeed(
+                generateResponse(
+                  buildSpeechletResponse("Okay. Check your browser for the new and exciting recipe of " + recipe, true),
+                  {}
+                )
+              )
+            });
+            break;
+
+          case "WhatIsOnMyWishList":
+            unirest.get("")
             .header("Accept", "application/json")
             .end(function (result) {
               console.log(result.body);
