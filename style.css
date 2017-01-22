@@ -18,7 +18,7 @@
 }
 
 body{
-  padding: 50px;
+
   color: rgba(0,0,0,0.7);
 
 
@@ -27,7 +27,7 @@ body{
 html{
   background-image: url("kitchen_image.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover
   background-attachment: fixed;
   min-height: 100%;
 
@@ -55,13 +55,4 @@ html{
 .trigger:hover .box{
   transform: translate(500px);
 
-}
-
-footer{
-
-	bottom: 0;
-	left: 0;
-	width: 100%;
-  padding-top: 25px;
-	padding-bottom: 5px;
 }
