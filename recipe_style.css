@@ -3,8 +3,16 @@ html{
 
 }
 
+h2.recipe-normal{
+  font-family: 'Raleway', sans-serif;
+/*  font: Arial, Helvetica, sans-serif;*/
+  font-size: 25px;
+  font-weight: bold;
+  color: #1B182E;
+}
+
 p.recipe-normal{
-  font-family: 'Convergence', sans-serif;
+  font-family: 'Raleway', sans-serif;
 /*  font: Arial, Helvetica, sans-serif;*/
   font-size: 15px;
   font-weight: bold;
