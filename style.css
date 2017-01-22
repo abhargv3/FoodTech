@@ -1,15 +1,16 @@
-.faded{
-  opacity: 0.1;
-
-    -webkit-transition-duration: 0.4s;
-    -moz-transition-duration: 0.4s;
-    -o-transition-duration: 0.4s;
-    transition-duration: 0.4s;
+div.alexa{
+  width: 50%;
+  float: left;
+  
 }
 
-.faded:hover{
-    opacity:1;
+div.answer{
+  background-color: #fff56d;
+  position: absolute;
+  right:0px;
 }
+
+
 
 h1.white-title{
   font-family: 'Convergence', sans-serif;
@@ -19,13 +20,23 @@ h1.white-title{
 
 }
 
-h4.white-normal{
+h4.black-alexa{
   font-family: 'Raleway', sans-serif;
 /*  font: Arial, Helvetica, sans-serif;*/
-  font-size: 25px;
+  font-size: 23px;
   font-weight: bold;
-  color: #ffffff;
+  color: #000000;
 }
+
+h4.black-answer{
+  font-family: 'Raleway', sans-serif;
+/*  font: Arial, Helvetica, sans-serif;*/
+  font-size: 15px;
+  font-weight: bold;
+  color: #000000;
+}
+
+
 
 .left{
   left: 0px;
